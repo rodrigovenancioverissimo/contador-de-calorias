@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  grams: 1
+  calories: 1
+  carbohydrates: 1.5
+  proteins: 1.5
+  total_fats: 1.5
+  satured_fats: 1.5
+  dietary_fiber: 1.5
+  sodium_in_mg: 1.5
+  user: one
+
+two:
+  name: MyString
+  grams: 1
+  calories: 1
+  carbohydrates: 1.5
+  proteins: 1.5
+  total_fats: 1.5
+  satured_fats: 1.5
+  dietary_fiber: 1.5
+  sodium_in_mg: 1.5
+  user: two

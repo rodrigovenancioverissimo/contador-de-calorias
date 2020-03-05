@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @food.name %>
+</p>
+
+<p>
+  <strong>Grams:</strong>
+  <%= @food.grams %>
+</p>
+
+<p>
+  <strong>Calories:</strong>
+  <%= @food.calories %>
+</p>
+
+<p>
+  <strong>Carbohydrates:</strong>
+  <%= @food.carbohydrates %>
+</p>
+
+<p>
+  <strong>Proteins:</strong>
+  <%= @food.proteins %>
+</p>
+
+<p>
+  <strong>Total fats:</strong>
+  <%= @food.total_fats %>
+</p>
+
+<p>
+  <strong>Satured fats:</strong>
+  <%= @food.satured_fats %>
+</p>
+
+<p>
+  <strong>Dietary fiber:</strong>
+  <%= @food.dietary_fiber %>
+</p>
+
+<p>
+  <strong>Sodium in mg:</strong>
+  <%= @food.sodium_in_mg %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @food.user %>
+</p>
+
+<%= link_to 'Edit', edit_food_path(@food) %> |
+<%= link_to 'Back', foods_path %>
