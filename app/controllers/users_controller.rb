@@ -5,10 +5,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
+  def new
   end
 
-  def new
+  def show
   end
 
   def edit
