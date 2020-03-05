@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Foods</h1>
-
-<table>
+<div class="table-responsive">
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -39,7 +39,7 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
-<%= link_to 'New Food', new_food_path %>
+<%= link_to 'New Food', new_food_path, class: 'btn btn-primary' %>
