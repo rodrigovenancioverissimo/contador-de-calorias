@@ -1,5 +1,7 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
+  before_action :set_users, only: [:show, :new, :edit, :update, :create]
+  before_action :set_measures, only: [:show, :new, :edit, :update, :create]
 
   # GET /foods
   # GET /foods.json
@@ -15,6 +17,7 @@ class FoodsController < ApplicationController
   # GET /foods/new
   def new
     @food = Food.new
+    @food.food_measures << FoodMeasure.new
   end
 
   # GET /foods/1/edit
@@ -74,4 +77,12 @@ class FoodsController < ApplicationController
                   :total_fats, :satured_fats, :dietary_fiber, :sodium_in_mg,
                   :user_id, food_measures_attributes: [:id, :measure_id, :_destroy])
     end
+
+  def set_users
+    @users = User.order(email: :asc)
+  end
+
+  def set_measures
+    @measures = Measure.order(name: :asc)
+  end
 end

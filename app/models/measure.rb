@@ -1,2 +1,3 @@
 class Measure < ApplicationRecord
+
 end

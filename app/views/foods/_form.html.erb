@@ -22,46 +22,65 @@
     <div class="col-md-4">
       <div class="form-group">
         <%= f.label :carbohydrates, 'Carboidratos (g)' %>
-        <%= f.text_field :carbohydrates, class: 'form-control' %>
+        <%= f.number_field :carbohydrates, class: 'form-control' %>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <%= f.label :proteins, 'Proteinas (g)' %>
-        <%= f.text_field :proteins, class: 'form-control' %>
+        <%= f.number_field :proteins, class: 'form-control' %>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <%= f.label :total_fats, 'Gorduras totais (g)' %>
-        <%= f.text_field :total_fats, class: 'form-control' %>
+        <%= f.number_field :total_fats, class: 'form-control' %>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <%= f.label :satured_fats, 'Gorduras saturadas (g)' %>
-        <%= f.text_field :satured_fats, class: 'form-control' %>
+        <%= f.number_field :satured_fats, class: 'form-control' %>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <%= f.label :dietary_fiber, 'Fibra alimentar (g)' %>
-        <%= f.text_field :dietary_fiber, class: 'form-control' %>
+        <%= f.number_field :dietary_fiber, class: 'form-control' %>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <%= f.label :sodium_in_mg, 'Sódio (mg)' %>
-        <%= f.text_field :sodium_in_mg, class: 'form-control' %>
+        <%= f.number_field :sodium_in_mg, class: 'form-control' %>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <%= f.label :user_id %>
-        <%= f.text_field :user_id, class: 'form-control' %>
+        <%= f.select :user_id, options_from_collection_for_select(@users, :id, :email, f.object.user_id),
+                     {include_blank: ''}, class: 'form-control' %>
       </div>
     </div>
   </div>
+
+  <div id="measures">
+    <h4>Medidas</h4>
+    <div id="measures_fields"
+      <%= f.fields_for :food_measures do |task| %>
+        <%= render 'foods/measures_fields', f: task %>
+      <% end %>
+    </div>
+    <%= link_to_add_association f, :food_measures,
+                                partial: 'foods/measures_fields',
+                                form_name: 'f',
+                                'data-association-insertion-node': '#measures_fields',
+                                class: 'btn btn-primary mt-2 mb-3',
+                                'data-association-insertion-method': 'append' do %>
+      Mais medidias
+    <% end %>
+  </div>
+
   <div class="actions mb-3">
     <%= f.submit 'Salvar', class: 'btn btn-success' %>
   </div>
