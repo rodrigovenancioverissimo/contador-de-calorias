@@ -10,4 +10,14 @@ class Meal < ApplicationRecord
       'Lanche da tarde': 'Afternoon snack',
       'Jantar': 'Dinner'
   }
+
+  before_validation :meal_foods_validates
+
+  private
+  def meal_foods_validates
+    unless self.meal_foods.present?
+      errors.add(:base, 'Refeição deve ter ao menos um alimento')
+    end
+    throw(:abort) if errors.count > 0
+  end
 end

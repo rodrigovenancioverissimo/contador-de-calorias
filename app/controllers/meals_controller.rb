@@ -43,8 +43,11 @@ class MealsController < ApplicationController
   # PATCH/PUT /meals/1
   # PATCH/PUT /meals/1.json
   def update
+    if params[:meal][:meal_foods_attributes].map{|i, food| food[:_destroy] == "1"}.all?
+      @meal.errors.add(:base, 'Refeição deve ter pelo menos um alimento')
+    end
     respond_to do |format|
-      if @meal.update(meal_params)
+      if @meal.errors.blank? && @meal.update(meal_params)
         format.html { redirect_to @meal, notice: 'Meal was successfully updated.' }
         format.json { render :show, status: :ok, location: @meal }
       else
