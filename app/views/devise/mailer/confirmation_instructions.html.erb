@@ -1,5 +1,10 @@
+<div  class="border rounded border-secundary p-4 ml-auto mr-auto mt-4 mb-3" style="max-width: 400px">
+
 <p>Welcome <%= @email %>!</p>
 
 <p>You can confirm your account email through the link below:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to 'Confirm my account',
+               confirmation_url(@resource, confirmation_token: @token),
+               class: 'btn btn-primary' %></p>
+</div>
