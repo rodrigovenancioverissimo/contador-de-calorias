@@ -69,6 +69,9 @@ class FoodsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def food_params
-      params.require(:food).permit(:name, :grams, :calories, :carbohydrates, :proteins, :total_fats, :satured_fats, :dietary_fiber, :sodium_in_mg, :user_id)
+      params.require(:food)
+          .permit(:name, :grams, :calories, :carbohydrates, :proteins,
+                  :total_fats, :satured_fats, :dietary_fiber, :sodium_in_mg,
+                  :user_id, food_measures_attributes: [:id, :measure_id, :_destroy])
     end
 end

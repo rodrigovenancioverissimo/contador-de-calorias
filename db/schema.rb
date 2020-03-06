@@ -12,13 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20200305195341) do
 
-  create_table "food_mesures", force: :cascade do |t|
+  create_table "food_measures", force: :cascade do |t|
     t.integer  "food_id"
     t.integer  "measure_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["food_id"], name: "index_food_mesures_on_food_id"
-    t.index ["measure_id"], name: "index_food_mesures_on_measure_id"
+    t.index ["food_id"], name: "index_food_measures_on_food_id"
+    t.index ["measure_id"], name: "index_food_measures_on_measure_id"
   end
 
   create_table "foods", force: :cascade do |t|

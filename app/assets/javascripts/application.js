@@ -14,5 +14,7 @@
 //= require jquery_ujs
 //= require popper
 //= require bootstrap-sprockets
+//= require cocoon
+//= require filterrific/filterrific-jquery
 //= require turbolinks
 //= require_tree .

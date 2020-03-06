@@ -38,6 +38,10 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 gem 'popper_js', '~> 1.14.5'
+gem 'cocoon', '~> 1.2', '>= 1.2.14'
+gem 'kaminari', '~> 1.2'
+gem 'filterrific', '~> 5.2', '>= 5.2.1'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

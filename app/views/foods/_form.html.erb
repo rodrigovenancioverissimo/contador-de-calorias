@@ -1,15 +1,5 @@
 <%= form_for(food) do |f| %>
-  <% if food.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
-
-      <ul>
-        <% food.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/validates_errors', obj: food %>
   <div class="form-row">
     <div class="col-md-4">
       <div class="form-group">
@@ -25,43 +15,43 @@
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <%= f.label :calories %>
+        <%= f.label :calories, 'Calorias (kcal)' %>
         <%= f.number_field :calories, class: 'form-control' %>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <%= f.label :carbohydrates %>
+        <%= f.label :carbohydrates, 'Carboidratos (g)' %>
         <%= f.text_field :carbohydrates, class: 'form-control' %>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <%= f.label :proteins %>
+        <%= f.label :proteins, 'Proteinas (g)' %>
         <%= f.text_field :proteins, class: 'form-control' %>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <%= f.label :total_fats %>
+        <%= f.label :total_fats, 'Gorduras totais (g)' %>
         <%= f.text_field :total_fats, class: 'form-control' %>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <%= f.label :satured_fats %>
+        <%= f.label :satured_fats, 'Gorduras saturadas (g)' %>
         <%= f.text_field :satured_fats, class: 'form-control' %>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <%= f.label :dietary_fiber %>
+        <%= f.label :dietary_fiber, 'Fibra alimentar (g)' %>
         <%= f.text_field :dietary_fiber, class: 'form-control' %>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <%= f.label :sodium_in_mg %>
+        <%= f.label :sodium_in_mg, 'Sódio (mg)' %>
         <%= f.text_field :sodium_in_mg, class: 'form-control' %>
       </div>
     </div>
