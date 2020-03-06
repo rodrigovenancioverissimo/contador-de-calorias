@@ -29,7 +29,7 @@
             <%= current_user.email %>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
+            <%= link_to user_path(current_user), class: 'dropdown-item' do %>
               Perfil
             <% end %>
             <div class="dropdown-divider"></div>
