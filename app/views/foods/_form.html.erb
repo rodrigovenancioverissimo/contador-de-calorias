@@ -4,64 +4,75 @@
       <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
 
       <ul>
-      <% food.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% food.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="form-row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :grams %>
+        <%= f.number_field :grams, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :calories %>
+        <%= f.number_field :calories, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :carbohydrates %>
+        <%= f.text_field :carbohydrates, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :proteins %>
+        <%= f.text_field :proteins, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :total_fats %>
+        <%= f.text_field :total_fats, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :satured_fats %>
+        <%= f.text_field :satured_fats, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :dietary_fiber %>
+        <%= f.text_field :dietary_fiber, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :sodium_in_mg %>
+        <%= f.text_field :sodium_in_mg, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :user_id %>
+        <%= f.text_field :user_id, class: 'form-control' %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :grams %>
-    <%= f.number_field :grams %>
-  </div>
-
-  <div class="field">
-    <%= f.label :calories %>
-    <%= f.number_field :calories %>
-  </div>
-
-  <div class="field">
-    <%= f.label :carbohydrates %>
-    <%= f.text_field :carbohydrates %>
-  </div>
-
-  <div class="field">
-    <%= f.label :proteins %>
-    <%= f.text_field :proteins %>
-  </div>
-
-  <div class="field">
-    <%= f.label :total_fats %>
-    <%= f.text_field :total_fats %>
-  </div>
-
-  <div class="field">
-    <%= f.label :satured_fats %>
-    <%= f.text_field :satured_fats %>
-  </div>
-
-  <div class="field">
-    <%= f.label :dietary_fiber %>
-    <%= f.text_field :dietary_fiber %>
-  </div>
-
-  <div class="field">
-    <%= f.label :sodium_in_mg %>
-    <%= f.text_field :sodium_in_mg %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions mb-3">
+    <%= f.submit 'Salvar', class: 'btn btn-success' %>
   </div>
 <% end %>
