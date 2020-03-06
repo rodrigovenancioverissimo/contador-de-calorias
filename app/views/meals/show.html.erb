@@ -1,14 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @meal.type %>
-</p>
+<fieldset disabled>
+  <%= render 'meals/form', meal: @meal %>
+</fieldset>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @meal.comment %>
-</p>
-
-<%= link_to 'Edit', edit_meal_path(@meal) %> |
-<%= link_to 'Back', meals_path %>
+<%= link_to 'Edit', edit_meal_path(@meal), class: 'btn btn-primary' %>
+<%= link_to 'Back', meals_path, class: 'btn btn-primary' %>

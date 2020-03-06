@@ -1,27 +1,37 @@
 <%= form_for(meal) do |f| %>
-  <% if meal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
-
-      <ul>
-      <% meal.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <%= render 'shared/validates_errors', obj: meal %>
+  <div class="form-row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :meal_type %>
+        <%= f.select :meal_type, options_for_select(Meal.meal_types.keys, f.object.meal_type),
+                     {include_blank: ''}, class: 'form-control' %>
+      </div>
     </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :comment %>
+        <%= f.text_area :comment, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div id="foods">
+    <h4>Alimentos</h4>
+    <div id="foods_fields">
+    <%= f.fields_for :meal_foods do |task| %>
+      <%= render 'meals/foods_fields', f: task %>
+    <% end %>
+  </div>
+  <%= link_to_add_association f, :meal_foods,
+                              partial: 'meals/foods_fields',
+                              form_name: 'f',
+                              'data-association-insertion-node': '#foods_fields',
+                              class: 'btn btn-primary mt-2 mb-3',
+                              'data-association-insertion-method': 'append' do %>
+    Mais Alimentos
   <% end %>
-
-  <div class="field">
-    <%= f.label :type %>
-    <%= f.text_field :type %>
   </div>
-
-  <div class="field">
-    <%= f.label :comment %>
-    <%= f.text_field :comment %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions mb-3">
+    <%= f.submit 'Salvar', class: 'btn btn-success' %>
   </div>
 <% end %>

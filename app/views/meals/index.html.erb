@@ -7,6 +7,7 @@
     <tr>
       <th>Type</th>
       <th>Comment</th>
+      <th>Alimentos</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +15,9 @@
   <tbody>
     <% @meals.each do |meal| %>
       <tr>
-        <td><%= meal.type %></td>
+        <td><%= meal.meal_type %></td>
         <td><%= meal.comment %></td>
+        <td><%= meal.foods.map{|x| x.name } rescue 'erro' %></td>
         <td><%= link_to 'Show', meal %></td>
         <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
         <td><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>

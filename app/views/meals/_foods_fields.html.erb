@@ -1,0 +1,10 @@
+<section>
+  <div class="mb-2 nested-fields" style="position: relative">
+    <div class="field" style="padding-right: 100px">
+      <%= f.select :food_id,
+                   options_from_collection_for_select(@foods, :id, :name, f.object.food_id),
+                   {include_blank: ''}, class: 'form-control' %>
+    </div>
+    <%= link_to_remove_association "remover", f, class: 'btn btn-danger', style: 'position: absolute; right: 0; bottom: 0' %>
+  </div>
+</section>

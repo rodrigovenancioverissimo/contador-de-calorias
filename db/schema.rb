@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20200305195341) do
   end
 
   create_table "meals", force: :cascade do |t|
-    t.string   "type",                    null: false
+    t.string   "meal_type",               null: false
     t.string   "comment",    limit: 2048
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
