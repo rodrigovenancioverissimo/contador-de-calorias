@@ -6,7 +6,7 @@ class FoodsController < ApplicationController
   # GET /foods
   # GET /foods.json
   def index
-    @foods = Food.all
+    @foods = Food.all.page(params[:page]).per(1)
   end
 
   # GET /foods/1

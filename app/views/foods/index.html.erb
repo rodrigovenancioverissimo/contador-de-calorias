@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Foods</h1>
+<div class="d-flex justify-content-between">
+  <%= paginate @foods %>
+  <div class="paginate-info">
+    <%= page_entries_info @foods %>
+  </div>
+</div>
 <div class="table-responsive">
 <table class="table">
   <thead>
@@ -16,6 +22,7 @@
       <th>Sodium in mg</th>
       <th>User</th>
       <th>Medidas</th>
+      <th>Adicionado em</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -34,6 +41,7 @@
         <td><%= food.sodium_in_mg %></td>
         <td><%= food.user.email rescue 'erro' %></td>
         <td><%= food.measures.map{|x| x.name } rescue 'erro' %></td>
+        <td><%= food.created_at %></td>
         <td><%= link_to 'Show', food %></td>
         <td><%= link_to 'Edit', edit_food_path(food) %></td>
         <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
