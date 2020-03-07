@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20200305195341) do
   create_table "food_measures", force: :cascade do |t|
     t.integer  "food_id"
     t.integer  "measure_id"
+    t.integer  "grams"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["food_id"], name: "index_food_measures_on_food_id"
