@@ -1,6 +1,21 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Foods</h1>
+<%= form_tag foods_path, method: :get do %>
+  <div class="form-row d-flex mb-2">
+    <div class="col-md-4">
+      <%= label_tag :name, 'Nome' %>
+      <%= text_field_tag :name, params[:name], class: 'form-control' %>
+    </div>
+    <div class="col-md-3">
+      <%= label_tag :user_id, 'Usuário' %>
+      <%= select_tag :user_id,
+                     options_from_collection_for_select(@users, :id, :email, params[:user_id]),
+                     class: 'form-control', include_blank: '' %>
+    </div>
+    <%= submit_tag 'Buscar', class: 'btn btn-success align-self-end' %>
+
+  </div>
+<% end %>
 <div class="d-flex justify-content-between">
   <%= paginate @foods, theme: 'twitter-bootstrap-4' %>
   <div class="paginate-info">

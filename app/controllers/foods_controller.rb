@@ -1,12 +1,14 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
-  before_action :set_users, only: [:show, :new, :edit, :update, :create]
+  before_action :set_users, only: [:show, :new, :edit, :update, :create, :index]
   before_action :set_measures, only: [:show, :new, :edit, :update, :create]
 
   # GET /foods
   # GET /foods.json
   def index
-    @foods = Food.all.page(params[:page]).per(1)
+    @foods = Food.with_user_id(params[:user_id])
+                 .with_name(params[:name])
+                 .page(params[:page]).per(10)
   end
 
   # GET /foods/1
