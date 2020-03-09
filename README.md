@@ -1,24 +1,9 @@
-# README
+# TechFit
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este projeto tem como finalidade na participação de um processo seletivo.
 
-Things you may want to cover:
+## Informações importantes
 
-* Ruby version
+Projeto na versão Ruby 2.6.5 e Rails 5.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Utilizado sqlite3 para os testes
