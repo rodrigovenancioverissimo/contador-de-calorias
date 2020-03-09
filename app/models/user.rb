@@ -12,4 +12,8 @@ class User < ApplicationRecord
   validates :name, :date_of_birth, :height, :weight, presence: true
   validates :height, inclusion: { in: 100..250 }
   validates :weight, inclusion: { in: 40..200 }
+
+  def idade
+    (Date.current - self.date_of_birth) / 365
+  end
 end

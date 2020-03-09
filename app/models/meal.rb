@@ -13,6 +13,10 @@ class Meal < ApplicationRecord
 
   before_validation :meal_foods_validates
 
+  def valor_nutricional
+    self.foods.pluck(:calories).sum
+  end
+
   private
   def meal_foods_validates
     unless self.meal_foods.present?
