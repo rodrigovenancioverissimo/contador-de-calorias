@@ -1,7 +1,53 @@
 <p id="notice"><%= notice %></p>
 
 <fieldset disabled>
-  <%= render 'meals/form', meal: @meal %>
+  <%= form_for(@meal) do |f| %>
+    <div class="form-row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :meal_type %>
+          <%= f.select :meal_type, options_for_select(Meal.meal_types.keys, f.object.meal_type),
+                       {include_blank: ''}, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= f.label :comment %>
+          <%= f.text_area :comment, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <div id="foods" class="mb-3">
+      <h4>Alimentos</h4>
+      <div id="foods_fields">
+        <%= f.fields_for :meal_foods do |task| %>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="form-group">
+                <%= task.label :food_id, 'Nome do alimento' %>
+                <%= task.select :food_id,
+                                options_from_collection_for_select(@foods, :id, :name, task.object.food_id),
+                                {include_blank: ''}, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <%= label_tag 'calories', 'Valor Nuticional' %>
+                <%= text_field_tag 'calories', (task.object.food.calories rescue 'erro'), class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="row">
+          <div class="offset-md-8 col-md-4">
+            <%= label_tag 'calories_total', 'Valor Nuticional Total' %>
+            <%= text_field_tag 'colories_total', f.object.valor_nutricional, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
 </fieldset>
 
 <%= link_to 'Edit', edit_meal_path(@meal), class: 'btn btn-primary' %>
